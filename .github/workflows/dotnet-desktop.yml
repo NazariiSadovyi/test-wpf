@@ -41,4 +41,4 @@ jobs:
       with:
         # Artifact name
         name: test                                     #.zip will be added automatically D:\a\test-wpf\test-wpf\WpfApp4\bin\Release\net5.0-windows\*.*
-        path: bin\Release\net5.0-windows\*.*
+        path: WpfApp4\bin\Release\net5.0-windows\*.*
