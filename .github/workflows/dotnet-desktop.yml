@@ -37,4 +37,4 @@ jobs:
       uses: actions/upload-artifact@v2.2.2
       with:
         name: test_master
-        path: WpfApp1\bin\Release\*.*
+        path: WpfApp1\bin\Release\
