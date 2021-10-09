@@ -13,5 +13,11 @@ namespace WpfApp1
     /// </summary>
     public partial class App : Application
     {
+        protected override void OnExit(ExitEventArgs e)
+        {
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+            base.OnExit(e);
+        }
     }
 }
