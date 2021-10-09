@@ -17,7 +17,6 @@ jobs:
       Project_Folder: WpfApp1
       Platform: x64
       Configuration: Release
-      Artifact_Path: WpfApp1\bin\Release\*.*
 
     steps:
     - name: Checkout
@@ -40,4 +39,4 @@ jobs:
       uses: actions/upload-artifact@v2.2.2
       with:
         name: test_master
-        path: ${{ env:Artifact_Path }}
+        path: WpfApp1\bin\Release\*.*
