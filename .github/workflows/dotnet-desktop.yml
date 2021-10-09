@@ -38,3 +38,9 @@ jobs:
       env:
         Configuration: ${{ matrix.configuration }}
     
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v2.2.2
+      with:
+        # Artifact name
+        name: test_master                                     #.zip will be added automatically D:\a\test-wpf\test-wpf\WpfApp4\bin\Release\net5.0-windows\*.*
+        path: WpfApp4
