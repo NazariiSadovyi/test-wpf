@@ -18,27 +18,23 @@ jobs:
 
     env:
       Solution_Name: WpfApp4.sln                         # Replace with your solution name, i.e. MyWpfApp.sln.
-      
+
     steps:
     - name: Checkout
       uses: actions/checkout@v2
       with:
         fetch-depth: 0
 
-    - name: Setup .NET
+    - name: Install .NET Core
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 5.0.x
+
+    - name: Setup MSBuild.exe
+      uses: microsoft/setup-msbuild@v1.0.2
+
+    - name: Restore the application
+      run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration /p:Platform=x64
+      env:
+        Configuration: ${{ matrix.configuration }}
     
-    - name: Restore dependencies
-      run: dotnet restore
-    
-    - name: Build
-      run: dotnet build -c release --no-restore /p:Platform=x64
-      
-    - name: Upload a Build Artifact
-      uses: actions/upload-artifact@v2.2.2
-      with:
-        # Artifact name
-        name: test_master                                     #.zip will be added automatically D:\a\test-wpf\test-wpf\WpfApp4\bin\Release\net5.0-windows\*.*
-        path: WpfApp4\bin\x64\Release\net5.0-windows\*.*
