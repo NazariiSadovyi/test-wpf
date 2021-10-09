@@ -1,4 +1,4 @@
-name: .NET Core Desktop
+name: .NET Framework Desktop
 
 on:
   push:
@@ -10,14 +10,13 @@ jobs:
 
   build:
 
-    strategy:
-      matrix:
-        configuration: [Release]
-
     runs-on: windows-latest
 
     env:
-      Solution_Name: WpfApp4.sln                         # Replace with your solution name, i.e. MyWpfApp.sln.
+      Solution_Name: WpfApp4.sln
+      Project_Folder: WpfApp1
+      Platform: x64
+      Configuration: Release
 
     steps:
     - name: Checkout
@@ -34,13 +33,10 @@ jobs:
       uses: microsoft/setup-msbuild@v1.0.2
 
     - name: Restore the application
-      run: msbuild $env:Solution_Name /t:Rebuild /p:Configuration=$env:Configuration /p:Platform=x64
-      env:
-        Configuration: ${{ matrix.configuration }}
+      run: msbuild $env:Solution_Name /t:Rebuild /p:Configuration=$env:Configuration /p:Platform=$env:Platform
     
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2.2.2
       with:
-        # Artifact name
-        name: test_master                                     #.zip will be added automatically D:\a\test-wpf\test-wpf\WpfApp4\bin\Release\net5.0-windows\*.*
-        path: WpfApp1\bin\Release\*.*
+        name: test_master
+        path: $env:Project_Folder\bin\$env:Configuration\*.*
