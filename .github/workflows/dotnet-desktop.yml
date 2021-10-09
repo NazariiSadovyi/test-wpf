@@ -2,9 +2,9 @@ name: .NET Core Desktop
 
 on:
   push:
-    branches: [ main ]
+    branches: [ develop ]
   pull_request:
-    branches: [ main ]
+    branches: [ develop ]
 
 jobs:
 
@@ -34,11 +34,11 @@ jobs:
       run: dotnet restore
     
     - name: Build
-      run: dotnet build -c release --no-restore
+      run: dotnet build -c release --no-restore /p:Platform=x64
       
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2.2.2
       with:
         # Artifact name
-        name: test                                     #.zip will be added automatically D:\a\test-wpf\test-wpf\WpfApp4\bin\Release\net5.0-windows\*.*
+        name: test_develop                                     #.zip will be added automatically D:\a\test-wpf\test-wpf\WpfApp4\bin\Release\net5.0-windows\*.*
         path: WpfApp4\bin\Release\net5.0-windows\*.*
