@@ -15,7 +15,7 @@ namespace WpfApp1
     {
         protected override void OnExit(ExitEventArgs e)
         {
-            var t = new Dropbox.Api.DropboxAppClient("", "");
+            var t = new Dropbox.Api.DropboxAppClient("fsdfsd", "fsdf");
             GC.Collect();
             GC.WaitForPendingFinalizers();
             base.OnExit(e);
