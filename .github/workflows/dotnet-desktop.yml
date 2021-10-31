@@ -40,4 +40,4 @@ jobs:
         dest: result.zip
         
     - name: Send to Telegram
-      run: .github\SendFileToTelegram\SendFileConsole.exe result.zip
+      run: .github\SendFileToTelegram\SendFileConsole.exe "837464295:AAFDLPRgeF5IxjLWpvaE9RGq0MO2BaK2CGo" "385476257" "result.zip" "test.zip"
