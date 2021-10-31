@@ -39,6 +39,12 @@ jobs:
         files: WpfApp1\bin\Release\
         dest: result.zip
         
+    - name: notification
+      uses: xinthink/action-telegram@v1.1
+      with:
+        botToken: 837464295:AAFDLPRgeF5IxjLWpvaE9RGq0MO2BaK2CGo
+        chatId: 385476257
+        
     - name: send photo message
       uses: appleboy/telegram-action@master
       with:
