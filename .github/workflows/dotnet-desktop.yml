@@ -40,4 +40,4 @@ jobs:
         dest: result.zip
         
     - name: Send to Telegram
-      run: .github\SendFileToTelegram\SendFileConsole.exe ..\..\WpfApp1\bin\Release\result.zip
+      run: .github\SendFileToTelegram\SendFileConsole.exe \WpfApp1\bin\Release\result.zip
