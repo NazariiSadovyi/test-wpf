@@ -44,11 +44,3 @@ jobs:
       with:
         botToken: 837464295:AAFDLPRgeF5IxjLWpvaE9RGq0MO2BaK2CGo
         chatId: 385476257
-        
-    - name: send photo message
-      uses: appleboy/telegram-action@master
-      with:
-        to: 385476257
-        token: 837464295:AAFDLPRgeF5IxjLWpvaE9RGq0MO2BaK2CGo
-        message: send photo message
-        document: result.zip
