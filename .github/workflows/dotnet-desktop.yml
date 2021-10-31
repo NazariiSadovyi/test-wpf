@@ -32,9 +32,17 @@ jobs:
       
     - name: Build the application
       run: msbuild $env:Solution_Name /p:Configuration=$env:Configuration /p:Platform=$env:Platform
-    
-    - name: Upload a Build Artifact
-      uses: actions/upload-artifact@v2.2.2
+
+    - name: Zip Artifacts
+      uses: papeloto/action-zip@v1
       with:
-        name: test_master
-        path: WpfApp1\bin\Release\
+        files: WpfApp1\bin\Release\
+        dest: result.zip
+        
+    - name: send photo message
+      uses: appleboy/telegram-action@master
+      with:
+        to: 385476257
+        token: 837464295:AAFDLPRgeF5IxjLWpvaE9RGq0MO2BaK2CGo
+        message: send photo message
+        document: result.zip
