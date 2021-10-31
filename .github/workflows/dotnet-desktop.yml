@@ -44,3 +44,4 @@ jobs:
       with:
         botToken: 837464295:AAFDLPRgeF5IxjLWpvaE9RGq0MO2BaK2CGo
         chatId: 385476257
+        skipSuccess: false
