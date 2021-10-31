@@ -39,9 +39,5 @@ jobs:
         files: WpfApp1\bin\Release\
         dest: result.zip
         
-    - name: notification
-      uses: xinthink/action-telegram@v1.1
-      with:
-        botToken: 837464295:AAFDLPRgeF5IxjLWpvaE9RGq0MO2BaK2CGo
-        chatId: 385476257
-        skipSuccess: false
+    - name: Send to Telegram
+      run: .github\SendFileToTelegram\SendFileConsole.exe 
